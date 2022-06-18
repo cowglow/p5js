@@ -13,17 +13,21 @@ export default class Jitter {
     this._p5 = p5;
     this.x = x;
     this.y = y;
-    this.diameter = p5.random(10, 30);
-    this.speed = 1;
+    this.diameter = 10;
+    this.speed = 35;
   }
 
   move() {
     this.x += this._p5.random(-this.speed, this.speed);
     this.y += this._p5.random(-this.speed, this.speed);
-    this.speed++;
+    this.diameter = this._p5.random(10, 100);
   }
 
   display() {
+    this._p5.push();
+    this._p5.noStroke();
+    this._p5.fill(this.y % 256, this.x % 256, 255, this.speed / 70);
     this._p5.ellipse(this.x, this.y, this.diameter, this.diameter);
+    this._p5.pop();
   }
 }
