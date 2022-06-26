@@ -9,6 +9,8 @@ const sketchIndex = Math.floor(Math.random() * sketches.length);
 
 const titleElement = document.querySelector<HTMLDivElement>("header");
 const containerElement = document.querySelector<HTMLDivElement>("#container");
+const buttonElement =
+  document.querySelector<HTMLButtonElement>("footer button");
 
 if (titleElement) {
   titleElement.innerHTML = sketchNames[sketchIndex];
@@ -16,4 +18,10 @@ if (titleElement) {
 
 if (containerElement) {
   new p5(sketches[sketchIndex], containerElement);
+}
+
+if (buttonElement) {
+  buttonElement.addEventListener("click", (event) => {
+    console.log(event);
+  });
 }
