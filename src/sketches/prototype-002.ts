@@ -33,6 +33,10 @@ export default (p: p5) => {
     size = 50;
   };
 
+  p.mouseReleased = () => {
+    bug = undefined;
+  };
+
   p.keyTyped = () => {
     if (p.key === "s") {
       const filename = "prototype-002-" + Date.now();
