@@ -1,0 +1,30 @@
+# Based on https://github.com/Narigo/demo-github-pages/
+# https://github.com/Narigo/demo-github-pages/blob/main/.github/workflows/deploy-to-gh-pages.yml
+name: Deploy to GitHub pages
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build the page
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Update page
+        run: |
+          yarn build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: dist/
