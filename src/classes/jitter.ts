@@ -30,7 +30,6 @@ export default class Jitter {
   display() {
     this._p5.push();
     this._p5.noStroke();
-    // this._p5.fill(this.y % 256, this.x % 256, 255, this.speed / 70);
     this._p5.fill(this.y % 256, this.x % 256, 255, this.speed / 70);
     this._p5.ellipse(this.x, this.y, this.diameter, this.diameter);
     this._p5.pop();

@@ -4,7 +4,6 @@ import Jitter from "../classes/jitter";
 export default (p: p5) => {
   let isPressed: boolean = false;
   const canvasPadding = 50;
-  let size = 50;
   let bug: Jitter | undefined;
 
   const canvasWidth = window.innerWidth - canvasPadding;
@@ -27,10 +26,6 @@ export default (p: p5) => {
     }
 
     isPressed = p.mouseIsPressed;
-  };
-
-  p.mouseMoved = () => {
-    size = 50;
   };
 
   p.mouseReleased = () => {

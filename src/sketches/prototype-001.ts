@@ -7,19 +7,19 @@ export default (p: p5) => {
 
   let growDirection = growDirectionState[0];
   let size = minSize;
-  let colorValue;
+
+  const canvasPadding = 50;
+  const canvasWidth = window.innerWidth - canvasPadding;
+  const canvasHeight = window.innerHeight - canvasPadding;
 
   p.setup = () => {
-    p.createCanvas(1920, 1080);
-    // colorMode(HSB, 360,100,100);
+    p.createCanvas(canvasWidth, canvasHeight);
+    p.colorMode(p.HSB, 360, 100, 100);
     p.background(0);
-    colorValue = 0;
   };
 
   p.draw = () => {
     if (p.mouseIsPressed) {
-      // colorValue = size % 360
-
       if (growDirection === "up") {
         size = size + 1;
       }
@@ -37,8 +37,8 @@ export default (p: p5) => {
       }
 
       p.stroke(1);
-      p.fill(360, 360, 360);
-
+      p.fill(0, 0, 33, size / 700);
+      // p.fill(p.mouseY % 256, p.mouseX % 256, 255, size / 700);
       p.ellipse(p.mouseX, p.mouseY, size, size);
     } else {
       growDirection = growDirectionState[0];
