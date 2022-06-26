@@ -3,11 +3,10 @@ import Jitter from "../classes/jitter";
 
 export default (p: p5) => {
   let isPressed: boolean = false;
-  const canvasPadding = 50;
   let bug: Jitter | undefined;
 
-  const canvasWidth = window.innerWidth - canvasPadding;
-  const canvasHeight = window.innerHeight - canvasPadding;
+  const canvasWidth = window.innerWidth - 50;
+  const canvasHeight = window.innerHeight - 150;
 
   p.setup = () => {
     p.createCanvas(canvasWidth, canvasHeight);

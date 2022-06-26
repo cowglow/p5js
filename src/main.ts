@@ -4,6 +4,16 @@ import sketch2 from "./sketches/prototype-002.js";
 import p5 from "p5";
 
 const sketches = [sketch1, sketch2];
+const sketchNames = ["prototype-001.ts", "prototype-002.ts"];
+const sketchIndex = Math.floor(Math.random() * sketches.length);
 
-const targetElement = document.querySelector<HTMLDivElement>("#container")!;
-new p5(sketches[Math.floor(Math.random() * sketches.length)], targetElement);
+const titleElement = document.querySelector<HTMLDivElement>("header");
+const containerElement = document.querySelector<HTMLDivElement>("#container");
+
+if (titleElement) {
+  titleElement.innerHTML = sketchNames[sketchIndex];
+}
+
+if (containerElement) {
+  new p5(sketches[sketchIndex], containerElement);
+}

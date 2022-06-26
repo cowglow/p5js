@@ -8,9 +8,8 @@ export default (p: p5) => {
   let growDirection = growDirectionState[0];
   let size = minSize;
 
-  const canvasPadding = 50;
-  const canvasWidth = window.innerWidth - canvasPadding;
-  const canvasHeight = window.innerHeight - canvasPadding;
+  const canvasWidth = window.innerWidth - 50;
+  const canvasHeight = window.innerHeight - 150;
 
   p.setup = () => {
     p.createCanvas(canvasWidth, canvasHeight);
