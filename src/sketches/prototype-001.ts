@@ -1,21 +1,17 @@
 import p5 from "p5";
+import {bootstrapCanvas} from "../lib/bootstrap-canvas";
+import {bootstrapEventLister} from "../lib/bootstrap-event-lister";
 
 export default (p: p5) => {
   const growDirectionState = ["up", "down"];
   const minSize = 10;
-  const maxSize = 360;
+  const maxSize = 240;
 
   let growDirection = growDirectionState[0];
   let size = minSize;
 
-  const canvasWidth = window.innerWidth - 50;
-  const canvasHeight = window.innerHeight - 150;
-
-  p.setup = () => {
-    p.createCanvas(canvasWidth, canvasHeight);
-    p.colorMode(p.HSB, 360, 100, 100);
-    p.background(0);
-  };
+  bootstrapCanvas(p);
+  bootstrapEventLister(p, {filename: "prototype-001-" + Date.now()});
 
   p.draw = () => {
     if (p.mouseIsPressed) {
@@ -42,14 +38,6 @@ export default (p: p5) => {
     } else {
       growDirection = growDirectionState[0];
       size = minSize;
-    }
-  };
-
-  p.keyTyped = () => {
-    if (p.key === "s") {
-      const filename = "prototype-001-" + Date.now();
-      console.log(filename);
-      p.saveCanvas(filename, "png");
     }
   };
 };

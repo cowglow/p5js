@@ -1,18 +1,14 @@
 import p5 from "p5";
 import Jitter from "../classes/jitter";
+import { bootstrapCanvas } from "../lib/bootstrap-canvas";
+import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
 
 export default (p: p5) => {
   let isPressed: boolean = false;
   let bug: Jitter | undefined;
 
-  const canvasWidth = window.innerWidth - 50;
-  const canvasHeight = window.innerHeight - 150;
-
-  p.setup = () => {
-    p.createCanvas(canvasWidth, canvasHeight);
-    p.background(0);
-    p.colorMode(p.HSB, 360, 100, 100);
-  };
+  bootstrapCanvas(p);
+  bootstrapEventLister(p, { filename: "prototype-002-" + Date.now() });
 
   p.draw = () => {
     if (bug) {
@@ -20,7 +16,7 @@ export default (p: p5) => {
       bug.move();
     }
 
-    if (p.mouseIsPressed && isPressed === false) {
+    if (p.mouseIsPressed && !isPressed) {
       bug = bug ? undefined : new Jitter(p, p.mouseX, p.mouseY);
     }
 
@@ -29,13 +25,5 @@ export default (p: p5) => {
 
   p.mouseReleased = () => {
     bug = undefined;
-  };
-
-  p.keyTyped = () => {
-    if (p.key === "s") {
-      const filename = "prototype-002-" + Date.now();
-      console.log(filename);
-      p.saveCanvas(filename, "png");
-    }
   };
 };
