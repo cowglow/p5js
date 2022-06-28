@@ -5,7 +5,7 @@ interface CanvasDimensions {
   canvasHeight: number;
 }
 
-const defaultCanvasDimensions: CanvasDimensions = {
+export const defaultCanvasDimensions: CanvasDimensions = {
   canvasWidth: window.innerWidth,
   canvasHeight: window.innerHeight,
 };
