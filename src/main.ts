@@ -10,8 +10,7 @@ const sketchNames = [
   "prototype-002.ts",
   "prototype-003.ts",
 ];
-// const sketchIndex = Math.floor(Math.random() * sketches.length);
-const sketchIndex = 2;
+const sketchIndex = Math.floor(Math.random() * sketches.length);
 
 const titleElement = document.querySelector<HTMLDivElement>("header");
 const containerElement = document.querySelector<HTMLDivElement>("#container");
