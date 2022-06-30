@@ -23,7 +23,9 @@ export default (p: p5) => {
   bootstrapEventLister(p, { filename: "prototype-003-" + Date.now() });
 
   p.preload = () => {
-    imageResource = p.loadImage("/vector/Vector.png");
+    imageResource = p.loadImage(
+      `./${import.meta.env["BASE_URL"]}/vector/Vector.png`
+    );
   };
 
   p.setup = () => {
@@ -49,7 +51,7 @@ export default (p: p5) => {
       p.ellipse(p.mouseX, p.mouseY, size, size);
 
       if (vectorResource) {
-        vectorResource.move( size);
+        vectorResource.move(size);
       }
     }
   };
