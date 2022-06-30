@@ -24,7 +24,7 @@ export default (p: p5) => {
 
   p.preload = () => {
     imageResource = p.loadImage(
-      `./${import.meta.env["BASE_URL"]}/vector/Vector.png`
+      `${import.meta.env["BASE_URL"]}vector/Vector.png`
     );
   };
 
