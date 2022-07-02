@@ -11,8 +11,7 @@ const prototypeIndexNum = (i: number) => {
 };
 
 const sketches = [sketch1, sketch2, sketch3, sketch4];
-// const sketchIndex = Math.floor(Math.random() * sketches.length);
-const sketchIndex = 3
+const sketchIndex = Math.floor(Math.random() * sketches.length);
 
 const titleElement = document.querySelector<HTMLDivElement>("header");
 const containerElement = document.querySelector<HTMLDivElement>("#container");
