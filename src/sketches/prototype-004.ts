@@ -12,8 +12,10 @@ export default (p: p5) => {
   bootstrapEventLister(p, { filename: "prototype-004-" + Date.now() });
 
   p.draw = () => {
-    p.stroke(255);
-    if (Math.random() < 0.5) {
+    let random = Math.random();
+    p.stroke(255, random);
+    p.strokeWeight(size);
+    if (random < 0.5) {
       p.line(x, y, x + size, y + size);
     } else {
       p.line(x, y + size, x + size, y);
@@ -24,18 +26,9 @@ export default (p: p5) => {
       x = 0;
       y = y + rowSize;
     }
-    // if (p.mouseIsPressed) {
-    //   if (p.mouseX < p.width * 0.5) {
-    //     ++size;
-    //   } else {
-    //     --size;
-    //   }
-    //
-    //   if (p.mouseY < p.height * 0.5) {
-    //     ++rowSize;
-    //   } else {
-    //     --rowSize;
-    //   }
-    // }
+
+    if (y > p.height) {
+      p.noLoop();
+    }
   };
 };
