@@ -28,4 +28,15 @@ export default class VectorResource {
       randomSize
     );
   }
+
+  center() {
+    this._p5.image(
+      this.image,
+      this._p5.width / 2,
+      this._p5.height / 2,
+      this.image.width / 2,
+      this.image.height / 2
+    );
+    this._p5.noLoop();
+  }
 }

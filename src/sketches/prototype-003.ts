@@ -16,6 +16,8 @@ const palette = [
 // @ts-ignore
 let vectorResource: VectorResource | undefined;
 let color = palette[Math.floor(Math.random() * palette.length)];
+let maxSize = 80;
+let centerPiece: VectorResource | boolean = false;
 
 export default (p: p5) => {
   let imageResource: p5.Image;
@@ -40,7 +42,7 @@ export default (p: p5) => {
     color = palette[Math.floor(Math.random() * palette.length)];
 
     if (p.mouseIsPressed) {
-      let size = Math.floor(Math.random() * 80);
+      let size = Math.floor(Math.random() * maxSize);
       const v1 = p.createVector(window.innerWidth / 2, window.innerHeight / 2);
 
       p.fill(`rgba(${color}, 0.4)`);
@@ -52,6 +54,11 @@ export default (p: p5) => {
 
       if (vectorResource) {
         vectorResource.move(size);
+      }
+
+      if (size === maxSize / 2 && !centerPiece) {
+        centerPiece = new VectorResource(p, palette, imageResource);
+        centerPiece.center();
       }
     }
   };
