@@ -4,7 +4,7 @@ import {
   defaultCanvasDimensions,
 } from "../lib/bootstrap-canvas";
 import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
-import VectorResource from "../classes/vector/vector";
+import VectorResource from "../classes/vector";
 
 const palette = [
   "187, 233, 200",
