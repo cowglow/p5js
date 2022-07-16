@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prototype": "touch src/sketches/prototype-00X.ts"
   },
   "devDependencies": {
     "@types/p5": "^1.4.2",
