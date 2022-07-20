@@ -10,7 +10,7 @@ export const defaultCanvasDimensions: CanvasDimensions = {
   canvasHeight: window.innerHeight,
 };
 
-export const bootstrapCanvas = (p: p5, background = 0) => {
+export const bootstrapCanvas = (p: p5, background = 0, loop = true) => {
   const { canvasWidth, canvasHeight } = defaultCanvasDimensions;
 
   p.setup = () => {
@@ -18,5 +18,9 @@ export const bootstrapCanvas = (p: p5, background = 0) => {
     p.createCanvas(canvasWidth, canvasHeight);
     p.colorMode(p.HSB, 360, 100, 100);
     p.background(background);
+
+    if (!loop) {
+      p.noLoop();
+    }
   };
 };

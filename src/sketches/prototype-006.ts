@@ -28,7 +28,7 @@ export default (p: p5) => {
   };
 
   p.draw = () => {
-    p.translate(p.windowWidth * 0.5, p.windowHeight * 0.5);
+    p.translate(p.windowWidth * 0.5, 0);
     let deg = getRandomRotation();
     if (max > 0) {
       const image =
