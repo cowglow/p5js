@@ -35,7 +35,7 @@ export default class CharacterColumn {
       if (character.y >= this._p5.windowHeight) {
         character.y = 0;
       }
-      character.y += this.size;
+      character.y += this.speed;
     });
   }
 }
