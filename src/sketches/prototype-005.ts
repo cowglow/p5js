@@ -16,11 +16,10 @@ export default (p: p5) => {
       p,
       charSize,
       charSize * i,
-      0,
-      frameInterval,
+      Math.floor(p.random(charSize, charSize * charSize)),
+      Math.floor(p.random(frameInterval, frameInterval * charSize)),
       Math.floor(p.random(18, p.windowHeight / charSize))
     );
-
     columns.push(charColumn);
   }
 
