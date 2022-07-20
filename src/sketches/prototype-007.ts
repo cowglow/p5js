@@ -38,6 +38,12 @@ export default (p: p5) => {
     if (max % size) {
       deg = deg + degIncrement;
       size = size - 3;
+    } else {
+      size = size + 3;
+    }
+
+    if (size < 90){
+      max = 0;
     }
     --max;
   };
