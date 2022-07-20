@@ -16,7 +16,7 @@ export default (p: p5) => {
       p,
       charSize,
       charSize * i,
-      Math.floor(p.random(charSize, charSize * charSize)),
+      -p.windowHeight,
       Math.floor(p.random(frameInterval, frameInterval * charSize)),
       Math.floor(p.random(18, p.windowHeight / charSize))
     );
