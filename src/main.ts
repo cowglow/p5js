@@ -11,25 +11,25 @@ import sketch8 from "./sketches/prototype-008";
 
 const LOCAL_STORAGE_KEY = "sketchIndex";
 
-const sketches = {
-  "prototype-001.ts": sketch1,
-  "prototype-002.ts": sketch2,
-  "prototype-003.ts": sketch3,
-  "prototype-004.ts": sketch4,
-  "prototype-005.ts": sketch5,
-  "prototype-006.ts": sketch6,
-  "prototype-007.ts": sketch7,
-  "prototype-008.ts": sketch8,
-};
+const sketches = [
+  { file: "prototype-001.ts", content: sketch1 },
+  { file: "prototype-002.ts", content: sketch2 },
+  { file: "prototype-003.ts", content: sketch3 },
+  { file: "prototype-004.ts", content: sketch4 },
+  { file: "prototype-005.ts", content: sketch5 },
+  { file: "prototype-006.ts", content: sketch6 },
+  { file: "prototype-007.ts", content: sketch7 },
+  { file: "prototype-008.ts", content: sketch8 },
+];
 
 let currentSketch = localStorage.getItem(LOCAL_STORAGE_KEY)
   ? localStorage.getItem(LOCAL_STORAGE_KEY)
-  : localStorage.setItem(LOCAL_STORAGE_KEY, Object.keys(sketches)[0]);
+  : localStorage.setItem(LOCAL_STORAGE_KEY, sketches[0].file);
 
 const titleElement = document.querySelector<HTMLDivElement>("header");
 if (titleElement) {
   const dropdown = createDropdown(
-    Object.keys(sketches),
+    sketches.map((sketch) => sketch.file),
     (value) => {
       localStorage.setItem(LOCAL_STORAGE_KEY, value);
       window.location.reload();
@@ -42,5 +42,6 @@ if (titleElement) {
 
 const containerElement = document.querySelector<HTMLDivElement>("#container");
 if (containerElement) {
-  new p5(sketches[currentSketch], containerElement);
+  const sketchToLoad = sketches.find((sketch) => sketch.file === currentSketch);
+  if (sketchToLoad) new p5(sketchToLoad.content, containerElement);
 }
