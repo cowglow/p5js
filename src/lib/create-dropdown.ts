@@ -1,18 +1,25 @@
 type DropdownOptions = string[];
+type DropdownChangeHandler = (value: string) => void;
 
-export default function createDropdown(sketches: DropdownOptions) {
-  console.log("create dropdown");
-
-  let output = document.createElement("HTMLSelectElement");
-  let option = document.createElement("option");
-  console.log(output)
-  output.appendChild(option);
+export default function createDropdown(
+  sketches: DropdownOptions,
+  changeHandler: DropdownChangeHandler,
+  defaultValue?: string | null | void
+) {
+  let select = document.createElement("select");
 
   sketches.forEach((sketch) => {
     let optionElement = document.createElement("option");
     optionElement.innerText = sketch;
-    output.appendChild(optionElement);
+    optionElement.setAttribute("value", sketch);
+    if (defaultValue && sketch === defaultValue) optionElement.selected = true;
+    select.appendChild(optionElement);
   });
-  output.innerText = "create dropdown";
-  return output;
+
+  select.addEventListener("change", (event) => {
+    event.preventDefault();
+    changeHandler(select.value);
+  });
+
+  return select;
 }

@@ -35,7 +35,6 @@ footer {
 header {
   font-weight: bolder;
   display: flex;
-  border: thin solid red;
   justify-content: space-between;
   align-items: center;
 }
@@ -71,4 +70,8 @@ button {
   background: #333;
   padding: 10px;
   border: none;
+}
+
+select {
+  padding: 0.45em;
 }
