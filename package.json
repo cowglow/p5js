@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prototype": "touch src/sketches/prototype-00X.ts"
+    "prototype": "node scripts/create-new-prototype.js"
   },
   "devDependencies": {
     "@types/p5": "^1.4.2",
