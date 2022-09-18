@@ -42,7 +42,7 @@ export default (p: p5) => {
       size = size + 3;
     }
 
-    if (size < 90){
+    if (size < 90) {
       max = 0;
     }
     --max;

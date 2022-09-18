@@ -23,7 +23,7 @@ export default (p: p5) => {
     if (cTile && lTile && wTile) {
       const columns = Math.round(p.windowWidth / cTile.width) * 0.01;
       const rows = Math.round(p.windowHeight / cTile.height) * 0.01;
-      max = Math.floor(rows * columns) *  3;
+      max = Math.floor(rows * columns) * 3;
     }
   };
 

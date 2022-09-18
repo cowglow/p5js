@@ -16,11 +16,16 @@ export default (p: p5) => {
 
     // Randomize color or non-color
     if (Math.random() > 0.5) {
-      p.stroke(Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), 255, Math.random());
+      p.stroke(
+        Math.floor(Math.random() * 256),
+        Math.floor(Math.random() * 256),
+        255,
+        Math.random()
+      );
     } else {
-      p.stroke(255, Math.random())
+      p.stroke(255, Math.random());
     }
-    
+
     // Randomize direction
     if (Math.random() < 0.5) {
       p.line(x, y, x + size, y + size);
