@@ -1,6 +1,6 @@
 import p5 from "p5";
 import { bootstrapCanvas } from "../lib/bootstrap-canvas";
-import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
+import { bootstrapEventListener } from "../lib/bootstrap-event-listener";
 
 let size = 50;
 let rowSize = 50;
@@ -9,7 +9,7 @@ let y = 0;
 
 export default (p: p5) => {
   bootstrapCanvas(p);
-  bootstrapEventLister(p, { filename: "prototype-004-" + Date.now() });
+  bootstrapEventListener(p, { filename: "prototype-004-" + Date.now() });
 
   p.draw = () => {
     p.strokeWeight(size);

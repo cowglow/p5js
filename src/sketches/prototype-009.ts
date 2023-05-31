@@ -1,10 +1,10 @@
 import p5 from "p5";
 import { bootstrapCanvas } from "../lib/bootstrap-canvas";
-import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
+import { bootstrapEventListener } from "../lib/bootstrap-event-listener";
 
 export default (p: p5) => {
   bootstrapCanvas(p, 0, false);
-  bootstrapEventLister(p, { filename: "prototype-009-" + Date.now() });
+  bootstrapEventListener(p, { filename: "prototype-009-" + Date.now() });
 
   p.draw = () => {
     const initialDiameter = p.windowWidth * 0.75;

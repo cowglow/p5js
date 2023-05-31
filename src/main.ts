@@ -9,6 +9,7 @@ import sketch6 from "./sketches/prototype-006";
 import sketch7 from "./sketches/prototype-007";
 import sketch8 from "./sketches/prototype-008";
 import sketch9 from "./sketches/prototype-009";
+import sketch10 from "./sketches/prototype-010";
 
 const LOCAL_STORAGE_KEY = "sketchIndex";
 
@@ -22,6 +23,7 @@ const sketches = [
   { file: "prototype-007.ts", content: sketch7 },
   { file: "prototype-008.ts", content: sketch8 },
   { file: "prototype-009.ts", content: sketch9 },
+  { file: "prototype-010.ts", content: sketch10 },
 ];
 
 let currentSketch = localStorage.getItem(LOCAL_STORAGE_KEY)

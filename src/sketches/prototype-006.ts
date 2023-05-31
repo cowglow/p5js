@@ -1,6 +1,6 @@
 import p5 from "p5";
 import { bootstrapCanvas } from "../lib/bootstrap-canvas";
-import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
+import { bootstrapEventListener } from "../lib/bootstrap-event-listener";
 import VectorResource from "../classes/vector";
 
 export default (p: p5) => {
@@ -13,7 +13,7 @@ export default (p: p5) => {
   let y = 0;
 
   bootstrapCanvas(p, 250);
-  bootstrapEventLister(p, { filename: "prototype-006-" + Date.now() });
+  bootstrapEventListener(p, { filename: "prototype-006-" + Date.now() });
 
   p.preload = () => {
     cTile = p.loadImage(`${import.meta.env["BASE_URL"]}cg-tiles/C.png`);

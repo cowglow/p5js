@@ -3,13 +3,13 @@
 import p5 from "p5";
 import Triangle from "../classes/triangle";
 import { bootstrapCanvas } from "../lib/bootstrap-canvas";
-import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
+import { bootstrapEventListener } from "../lib/bootstrap-event-listener";
 import { getMidPoint } from "../lib/get-mid-point";
 
 export default (p: p5) => {
   let max = 1;
   bootstrapCanvas(p, 0, false);
-  bootstrapEventLister(p, { filename: "prototype-008-" + Date.now() });
+  bootstrapEventListener(p, { filename: "prototype-008-" + Date.now() });
 
   let p1 = p.createVector(p.windowWidth / 2, 0);
   let p2 = p.createVector(0, p.windowHeight);

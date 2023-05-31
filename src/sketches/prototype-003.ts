@@ -3,7 +3,7 @@ import {
   bootstrapCanvas,
   defaultCanvasDimensions,
 } from "../lib/bootstrap-canvas";
-import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
+import { bootstrapEventListener } from "../lib/bootstrap-event-listener";
 import VectorResource from "../classes/vector";
 
 const palette = [
@@ -22,7 +22,7 @@ let centerPiece: VectorResource | boolean = false;
 export default (p: p5) => {
   let imageResource: p5.Image;
   bootstrapCanvas(p);
-  bootstrapEventLister(p, { filename: "prototype-003-" + Date.now() });
+  bootstrapEventListener(p, { filename: "prototype-003-" + Date.now() });
 
   p.preload = () => {
     imageResource = p.loadImage(

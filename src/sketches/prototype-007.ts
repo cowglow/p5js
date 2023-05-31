@@ -1,6 +1,6 @@
 import p5 from "p5";
 import { bootstrapCanvas } from "../lib/bootstrap-canvas";
-import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
+import { bootstrapEventListener } from "../lib/bootstrap-event-listener";
 
 export default (p: p5) => {
   let max = 360;
@@ -11,7 +11,7 @@ export default (p: p5) => {
   let y = 0;
 
   bootstrapCanvas(p);
-  bootstrapEventLister(p, { filename: "prototype-007-" + Date.now() });
+  bootstrapEventListener(p, { filename: "prototype-007-" + Date.now() });
 
   p.draw = () => {
     p.translate(p.windowWidth * 0.5, p.windowHeight * 0.5);

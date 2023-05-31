@@ -1,11 +1,11 @@
 import p5 from "p5";
 import { bootstrapCanvas } from "../lib/bootstrap-canvas";
-import { bootstrapEventLister } from "../lib/bootstrap-event-lister";
+import { bootstrapEventListener } from "../lib/bootstrap-event-listener";
 import CharacterColumn from "../classes/character-column";
 
 export default (p: p5) => {
   bootstrapCanvas(p);
-  bootstrapEventLister(p, { filename: "prototype-005-" + Date.now() });
+  bootstrapEventListener(p, { filename: "prototype-005-" + Date.now() });
 
   let frameInterval = 2;
   let charSize = 14;

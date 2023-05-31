@@ -4,7 +4,7 @@ interface PayloadInterface {
   filename: string;
 }
 
-export const bootstrapEventLister = (p: p5, payload: PayloadInterface) => {
+export const bootstrapEventListener = (p: p5, payload: PayloadInterface) => {
   p.keyTyped = () => {
     if (p.key === "s") {
       const { filename } = payload;
