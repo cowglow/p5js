@@ -1,20 +1,20 @@
-import p5 from "p5";
+import p5 from 'p5';
 
 interface PayloadInterface {
-  filename: string;
+	filename: string;
 }
 
 export const bootstrapEventListener = (p: p5, payload: PayloadInterface) => {
-  p.keyTyped = () => {
-    if (p.key === "s") {
-      const { filename } = payload;
-      p.saveCanvas(filename, "png");
-    }
-  };
+	p.keyTyped = () => {
+		if (p.key === 's') {
+			const { filename } = payload;
+			p.saveCanvas(filename, 'png');
+		}
+	};
 
-  // Todo: Extend P5 with out own function
-  // @ts-ignore
-  p.exportCanvas = () => {
-    console.log("exportCanvas");
-  };
+	// Todo: Extend P5 with out own function
+	// @ts-ignore
+	p.exportCanvas = () => {
+		console.log('exportCanvas');
+	};
 };
