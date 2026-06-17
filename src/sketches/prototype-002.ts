@@ -2,6 +2,15 @@ import p5 from 'p5';
 import Jitter from '../classes/jitter';
 import { bootstrapCanvas } from 'lib/bootstrap-canvas';
 import { bootstrapEventListener } from 'lib/bootstrap-event-listener';
+import { SketchMeta } from './index';
+
+export const meta: SketchMeta = {
+	title: 'Jitter Bug',
+	date: '2022-06-18',
+	description:
+		'Click to spawn a wandering bug that jitters across the canvas, trailing ellipses with shifting hues. Release the mouse to dismiss it.',
+	tags: ['interactive', 'mouse', 'animation', 'oop'],
+};
 
 export default (p: p5) => {
 	let isPressed: boolean = false;

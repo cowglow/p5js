@@ -2,17 +2,26 @@ import p5 from 'p5';
 import { bootstrapCanvas } from 'lib/bootstrap-canvas';
 import { bootstrapEventListener } from 'lib/bootstrap-event-listener';
 import CharacterColumn from '../classes/character-column';
+import { SketchMeta } from './index';
+
+export const meta: SketchMeta = {
+	title: 'Digital Rain',
+	date: '2022-07-09',
+	description:
+		'Matrix-style columns of falling characters cascade down the screen. Each column has a randomized drop speed and length, creating a continuous ambient loop.',
+	tags: ['generative', 'animation', 'ambient', 'text'],
+};
 
 export default (p: p5) => {
 	bootstrapCanvas(p);
 	bootstrapEventListener(p, { filename: 'prototype-005-' + Date.now() });
 
-	let frameInterval = 2;
-	let charSize = 14;
+	const frameInterval = 2;
+	const charSize = 14;
 
-	let columns: CharacterColumn[] = [];
+	const columns: CharacterColumn[] = [];
 	for (let i = 0; i <= p.windowWidth / charSize; ++i) {
-		let charColumn = new CharacterColumn(
+		const charColumn = new CharacterColumn(
 			p,
 			charSize,
 			charSize * i,

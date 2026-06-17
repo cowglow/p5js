@@ -1,12 +1,21 @@
 import p5 from 'p5';
 import { bootstrapCanvas } from 'lib/bootstrap-canvas';
 import { bootstrapEventListener } from 'lib/bootstrap-event-listener';
+import { SketchMeta } from './index';
+
+export const meta: SketchMeta = {
+	title: 'Orbital Ellipses',
+	date: '2022-07-16',
+	description:
+		'Ellipses rotate and drift outward from center, driven by a mathematical oscillation that gradually winds down. Each run is unique due to randomized initial size and rotation increment.',
+	tags: ['generative', 'math', 'animation', 'auto'],
+};
 
 export default (p: p5) => {
 	let max = 360;
 	let size = p.random(p.windowHeight / 8, p.windowHeight / 4);
 	let deg = 0;
-	let degIncrement = p.random(0, p.PI);
+	const degIncrement = p.random(0, p.PI);
 	let x = 0;
 	let y = 0;
 

@@ -1,20 +1,28 @@
 import p5 from 'p5';
 import { bootstrapCanvas } from 'lib/bootstrap-canvas';
 import { bootstrapEventListener } from 'lib/bootstrap-event-listener';
+import { SketchMeta } from './index';
 
-let size = 50;
-let rowSize = 50;
-let x = 0;
-let y = 0;
+export const meta: SketchMeta = {
+	title: 'Diagonal Grid',
+	date: '2022-07-02',
+	description:
+		'An algorithm fills the canvas cell by cell with randomized diagonal lines — each a coin-flip between / and \\. Color or monochrome, decided at random. Runs once and stops.',
+	tags: ['generative', 'grid', 'auto'],
+};
 
 export default (p: p5) => {
+	const size = 50;
+	const rowSize = 50;
+	let x = 0;
+	let y = 0;
+
 	bootstrapCanvas(p);
 	bootstrapEventListener(p, { filename: 'prototype-004-' + Date.now() });
 
 	p.draw = () => {
 		p.strokeWeight(size);
 
-		// Randomize color or non-color
 		if (Math.random() > 0.5) {
 			p.stroke(
 				Math.floor(Math.random() * 256),
@@ -26,7 +34,6 @@ export default (p: p5) => {
 			p.stroke(255, Math.random());
 		}
 
-		// Randomize direction
 		if (Math.random() < 0.5) {
 			p.line(x, y, x + size, y + size);
 		} else {

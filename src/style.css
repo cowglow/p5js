@@ -11,8 +11,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	height: 100%;
-	background-color: #333;
+	min-height: 100%;
+	background-color: #1a1a1a;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 canvas {
@@ -25,18 +27,20 @@ header,
 footer {
 	padding: 10px 2%;
 	color: #fff;
-	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
-	background-color: #666;
+	background-color: #333;
 	position: fixed;
 	width: 100%;
+	z-index: 10;
 }
 
 header {
+	/*top: 0;*/
 	font-weight: bolder;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	/*gap: 16px;*/
 }
 
 footer {
@@ -49,9 +53,8 @@ footer {
 
 main {
 	flex-grow: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	/*margin-top: 42px;*/
+	/*margin-bottom: 42px;*/
 }
 
 a,
@@ -62,26 +65,143 @@ a:visited {
 
 a:hover {
 	text-decoration: underline;
-	color: #333;
 }
 
 button {
 	color: #fff;
-	background: #333;
-	padding: 10px;
-	border: none;
+	background: transparent;
+	padding: 6px 12px;
+	border: 1px solid #666;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 0.75rem;
+	letter-spacing: 0.05em;
 }
+
 button:hover {
 	background: #fff;
-	color: #333;
+	color: #1a1a1a;
+	border-color: #fff;
+}
+
+.site-title {
+	font-size: 0.85rem;
+	letter-spacing: 0.1em;
+}
+
+/* ── Gallery ─────────────────────────────────────── */
+
+.gallery-intro {
+	padding: 12px 24px;
+	font-size: 0.72rem;
+	color: #666;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	border-bottom: 1px solid #2a2a2a;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 1px;
+	background-color: #333;
+	padding: 0;
+}
+
+.sketch-card {
+	background-color: #1a1a1a;
+	padding: 28px 24px;
 	cursor: pointer;
-}
-
-select {
-	padding: 0.45em;
-}
-
-.header-controls {
 	display: flex;
-	gap: 16px;
+	flex-direction: column;
+	gap: 10px;
+	transition: background-color 0.15s ease;
+}
+
+.sketch-card:hover {
+	background-color: #242424;
+}
+
+.sketch-card h2 {
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.sketch-card p {
+	font-size: 0.85rem;
+	line-height: 1.6;
+	color: #aaa;
+}
+
+.sketch-card time {
+	font-size: 0.75rem;
+	color: #666;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-top: auto;
+}
+
+.sketch-card-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+/* ── Sketch detail ───────────────────────────────── */
+
+.sketch-detail {
+	display: flex;
+	flex-direction: column;
+}
+
+#canvas-container canvas {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.sketch-info {
+	padding: 32px 24px;
+	max-width: 680px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.sketch-info h1 {
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.sketch-info time {
+	font-size: 0.75rem;
+	color: #666;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.sketch-info p {
+	font-size: 0.9rem;
+	line-height: 1.7;
+	color: #aaa;
+}
+
+.sketch-info-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+/* ── Tags ────────────────────────────────────────── */
+
+.tag {
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #888;
+	border: 1px solid #444;
+	padding: 2px 8px;
 }

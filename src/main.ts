@@ -1,44 +1,43 @@
-import createDropdownElement from 'components/dropdown/create-dropdown-element';
-import createRefreshButton from 'components/refresh-button/create-refresh-button';
-import createDropdownOptions from 'components/dropdown/create-dropdown-options';
 import sketches from 'sketches/index';
-import { LOCAL_STORAGE_KEY } from 'lib/constants';
-import p5 from 'p5';
+import { getRoute, navigateToGallery } from 'lib/router';
 import exportCanvas from 'lib/export-canvas';
-import createTitleLabel from 'lib/create-title-label';
+import { renderGallery } from './views/gallery';
+import { renderSketchDetail, destroySketch } from './views/sketch-detail';
 
-const currentSketch = localStorage.getItem(LOCAL_STORAGE_KEY) || '';
-if (!currentSketch) {
-	window.location.reload();
-}
-
-const titleElement = document.querySelector<HTMLDivElement>('header');
-if (titleElement) {
-	// Dropdown
-	const dropdownOptions = createDropdownOptions(sketches);
-	const dropdownElement = createDropdownElement(dropdownOptions);
-	// Refresh
-	const refreshButton = createRefreshButton('Refresh');
-	// Wrapper
-	const wrapper = document.createElement('div');
-	wrapper.classList.add('header-controls');
-	wrapper.appendChild(refreshButton);
-	wrapper.appendChild(dropdownElement);
-
-	titleElement.innerText = createTitleLabel(currentSketch);
-	titleElement.appendChild(wrapper);
-}
-
-const containerElement = document.querySelector<HTMLDivElement>('#container');
-if (containerElement) {
-	const sketchToLoad = sketches.find((sketch) => sketch.file === currentSketch);
-	if (sketchToLoad) new p5(sketchToLoad.content, containerElement);
-}
-
+const header = document.querySelector<HTMLElement>('header')!;
+const container = document.querySelector<HTMLElement>('#container')!;
 const exportButton = document.getElementById('exportButton');
-if (exportButton) {
-	exportButton.addEventListener('click', (event) => {
-		event.preventDefault();
-		exportCanvas(currentSketch);
-	});
+
+function render() {
+	const route = getRoute();
+
+	if (route.view === 'gallery') {
+		destroySketch();
+		header.innerHTML = '<span class="site-title">cowglow / p5js</span>';
+		if (exportButton) exportButton.style.display = 'none';
+		renderGallery(sketches, container);
+		return;
+	}
+
+	const sketch = sketches.find((s) => s.file === route.file);
+	if (!sketch) {
+		navigateToGallery();
+		return;
+	}
+
+	header.innerHTML = `
+		<button id="back-button">← Gallery</button>
+		<span class="site-title">${sketch.meta.title}</span>
+	`;
+	document.getElementById('back-button')?.addEventListener('click', navigateToGallery);
+
+	if (exportButton) {
+		exportButton.style.display = '';
+		exportButton.onclick = () => exportCanvas(sketch.file);
+	}
+
+	renderSketchDetail(sketch, container);
 }
+
+window.addEventListener('popstate', render);
+render();

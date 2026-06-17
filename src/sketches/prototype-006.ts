@@ -2,6 +2,15 @@ import p5 from 'p5';
 import { bootstrapCanvas } from 'lib/bootstrap-canvas';
 import { bootstrapEventListener } from 'lib/bootstrap-event-listener';
 import VectorResource from '../classes/vector';
+import { SketchMeta } from './index';
+
+export const meta: SketchMeta = {
+	title: 'CG Tile Mosaic',
+	date: '2022-07-16',
+	description:
+		'Brand tiles (C, L, W) are randomly placed and rotated across the canvas, assembling a mosaic that fills the screen and stops.',
+	tags: ['generative', 'tiles', 'brand', 'auto'],
+};
 
 export default (p: p5) => {
 	let cTile: p5.Image;
@@ -29,7 +38,7 @@ export default (p: p5) => {
 
 	p.draw = () => {
 		p.translate(p.windowWidth * 0.5, 0);
-		let deg = getRandomRotation();
+		const deg = getRandomRotation();
 		if (max > 0) {
 			const image = Math.random() > 0.5 ? cTile : Math.random() > 0.5 ? lTile : wTile;
 			const tile = new VectorResource(p, [], image);
@@ -37,7 +46,6 @@ export default (p: p5) => {
 			p.push();
 			p.rotate(deg);
 			tile.moveTo(x, y);
-
 			p.pop();
 
 			if (x >= p.windowWidth) {
