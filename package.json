@@ -9,10 +9,10 @@
 		"prototype": "node scripts/create-new-prototype.js"
 	},
 	"devDependencies": {
-		"@types/node": "^20.10.5",
-		"@types/p5": "^1.4.2",
-		"typescript": "^4.5.4",
-		"vite": "^5.0.10"
+		"@types/node": "^25.9.3",
+		"@types/p5": "^1.7.7",
+		"typescript": "^6.0.3",
+		"vite": "^8.0.16"
 	},
 	"dependencies": {
 		"p5": "^1.9.0",

@@ -1,17 +1,17 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./src",
 		"paths": {
-			"components/*": ["components/*"],
-			"lib/*": ["lib/*"],
-			"sketches/*": ["sketches/*"]
+			"components/*": ["./src/components/*"],
+			"lib/*": ["./src/lib/*"],
+			"sketches": ["./src/sketches/index.ts"],
+			"sketches/*": ["./src/sketches/*"]
 		},
 		"target": "ESNext",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
 		"lib": ["ESNext", "DOM"],
 		"types": ["vite/client"],
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"strict": true,
 		"sourceMap": true,
 		"resolveJsonModule": true,
