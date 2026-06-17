@@ -50,4 +50,11 @@ export default (p: p5) => {
 			p.noLoop();
 		}
 	};
+
+	p.mouseClicked = () => {
+		x = 0;
+		y = 0;
+		p.background(0);
+		p.loop();
+	};
 };

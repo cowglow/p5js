@@ -4,14 +4,17 @@
 	padding: 0;
 }
 
-html,
+html {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	min-height: 100%;
+	min-height: 100dvh;
 	background-color: #1a1a1a;
 	color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
@@ -25,36 +28,31 @@ canvas {
 
 header,
 footer {
+	border: thin solid #666;
 	padding: 10px 2%;
 	color: #fff;
 	text-transform: uppercase;
 	background-color: #333;
-	position: fixed;
 	width: 100%;
-	z-index: 10;
 }
 
 header {
-	/*top: 0;*/
 	font-weight: bolder;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	/*gap: 16px;*/
 }
 
 footer {
 	font-size: 0.75rem;
-	bottom: 0;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 }
 
 main {
 	flex-grow: 1;
-	/*margin-top: 42px;*/
-	/*margin-bottom: 42px;*/
+	width: 100%;
 }
 
 a,
@@ -84,6 +82,12 @@ button:hover {
 	border-color: #fff;
 }
 
+.header-left {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
 .site-title {
 	font-size: 0.85rem;
 	letter-spacing: 0.1em;
@@ -105,7 +109,6 @@ button:hover {
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: 1px;
 	background-color: #333;
-	padding: 0;
 }
 
 .sketch-card {

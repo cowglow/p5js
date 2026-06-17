@@ -26,4 +26,9 @@ export default (p: p5) => {
 			p.circle(p.windowWidth * 0.5, p.windowHeight * 0.5, (initialDiameter * random) / i);
 		}
 	};
+
+	p.mouseClicked = () => {
+		p.background(0);
+		p.redraw();
+	};
 };

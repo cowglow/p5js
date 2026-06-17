@@ -18,8 +18,11 @@ export default (p: p5) => {
 	let wTile: p5.Image;
 
 	let max = 100;
+	let initialMax = 100;
 	let x = 0;
 	let y = 0;
+	let originX = p.windowWidth * 0.5;
+	let originY = 0;
 
 	bootstrapCanvas(p, 250);
 	bootstrapEventListener(p, { filename: 'prototype-006-' + Date.now() });
@@ -32,12 +35,13 @@ export default (p: p5) => {
 		if (cTile && lTile && wTile) {
 			const columns = Math.round(p.windowWidth / cTile.width) * 0.01;
 			const rows = Math.round(p.windowHeight / cTile.height) * 0.01;
-			max = Math.floor(rows * columns) * 3;
+			initialMax = Math.floor(rows * columns) * 3;
+			max = initialMax;
 		}
 	};
 
 	p.draw = () => {
-		p.translate(p.windowWidth * 0.5, 0);
+		p.translate(originX, originY);
 		const deg = getRandomRotation();
 		if (max > 0) {
 			const image = Math.random() > 0.5 ? cTile : Math.random() > 0.5 ? lTile : wTile;
@@ -56,6 +60,15 @@ export default (p: p5) => {
 			}
 			--max;
 		}
+	};
+
+	p.mouseClicked = () => {
+		originX = p.mouseX;
+		originY = p.mouseY;
+		x = 0;
+		y = 0;
+		max = initialMax;
+		p.background(250);
 	};
 };
 

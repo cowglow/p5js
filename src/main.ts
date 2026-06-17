@@ -6,7 +6,6 @@ import { renderSketchDetail, destroySketch } from './views/sketch-detail';
 
 const header = document.querySelector<HTMLElement>('header')!;
 const container = document.querySelector<HTMLElement>('#container')!;
-const exportButton = document.getElementById('exportButton');
 
 function render() {
 	const route = getRoute();
@@ -14,7 +13,6 @@ function render() {
 	if (route.view === 'gallery') {
 		destroySketch();
 		header.innerHTML = '<span class="site-title">cowglow / p5js</span>';
-		if (exportButton) exportButton.style.display = 'none';
 		renderGallery(sketches, container);
 		return;
 	}
@@ -26,15 +24,14 @@ function render() {
 	}
 
 	header.innerHTML = `
-		<button id="back-button">← Gallery</button>
-		<span class="site-title">${sketch.meta.title}</span>
+		<div class="header-left">
+			<button id="back-button">← Gallery</button>
+			<span class="site-title">${sketch.meta.title}</span>
+		</div>
+		<button id="export-button">Export</button>
 	`;
 	document.getElementById('back-button')?.addEventListener('click', navigateToGallery);
-
-	if (exportButton) {
-		exportButton.style.display = '';
-		exportButton.onclick = () => exportCanvas(sketch.file);
-	}
+	document.getElementById('export-button')?.addEventListener('click', () => exportCanvas(sketch.file));
 
 	renderSketchDetail(sketch, container);
 }

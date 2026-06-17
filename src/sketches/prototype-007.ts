@@ -15,15 +15,17 @@ export default (p: p5) => {
 	let max = 360;
 	let size = p.random(p.windowHeight / 8, p.windowHeight / 4);
 	let deg = 0;
-	const degIncrement = p.random(0, p.PI);
+	let degIncrement = p.random(0, p.PI);
 	let x = 0;
 	let y = 0;
+	let originX = p.windowWidth * 0.5;
+	let originY = p.windowHeight * 0.5;
 
 	bootstrapCanvas(p);
 	bootstrapEventListener(p, { filename: 'prototype-007-' + Date.now() });
 
 	p.draw = () => {
-		p.translate(p.windowWidth * 0.5, p.windowHeight * 0.5);
+		p.translate(originX, originY);
 		if (max > 0) {
 			p.push();
 			p.noFill();
@@ -50,5 +52,17 @@ export default (p: p5) => {
 			max = 0;
 		}
 		--max;
+	};
+
+	p.mouseClicked = () => {
+		originX = p.mouseX;
+		originY = p.mouseY;
+		max = 360;
+		size = p.random(p.windowHeight / 8, p.windowHeight / 4);
+		degIncrement = p.random(0, p.PI);
+		deg = 0;
+		x = 0;
+		y = 0;
+		p.background(0);
 	};
 };
