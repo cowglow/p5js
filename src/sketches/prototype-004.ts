@@ -4,7 +4,7 @@ import { bootstrapEventListener } from 'lib/bootstrap-event-listener';
 import { SketchMeta } from './index';
 
 export const meta: SketchMeta = {
-	title: 'Diagonal Grid',
+	title: 'Fizz Buzz',
 	date: '2022-07-02',
 	description:
 		'An algorithm fills the canvas cell by cell with randomized diagonal lines — each a coin-flip between / and \\. Color or monochrome, decided at random. Runs once and stops.',
