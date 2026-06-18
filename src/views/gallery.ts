@@ -1,7 +1,7 @@
 import { Sketch } from 'sketches';
 import { navigateToSketch } from 'lib/router';
 
-const INTRO = `<p class="gallery-intro">A sketchbook of generative experiments — made in Bavaria, built with p5.js.</p>`;
+const INTRO = `<p class="gallery-intro">A p5js sketchbook of generative experiments<br/>— now built with Claude.</p>`;
 
 export function renderGallery(sketches: Sketch[], container: HTMLElement) {
 	container.className = 'gallery';

@@ -97,11 +97,12 @@ button:hover {
 
 .gallery-intro {
 	padding: 12px 24px;
-	font-size: 0.72rem;
+	font-size: 0.87rem;
 	color: #666;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	border-bottom: 1px solid #2a2a2a;
+	line-height: 1.2rem;
 }
 
 .gallery {
