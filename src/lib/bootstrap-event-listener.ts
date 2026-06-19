@@ -1,4 +1,5 @@
 import p5 from 'p5';
+import exportCanvas from 'lib/export-canvas';
 
 interface PayloadInterface {
 	filename: string;
@@ -6,15 +7,12 @@ interface PayloadInterface {
 
 export const bootstrapEventListener = (p: p5, payload: PayloadInterface) => {
 	p.keyTyped = () => {
+		const { filename } = payload;
 		if (p.key === 's') {
-			const { filename } = payload;
 			p.saveCanvas(filename, 'png');
 		}
-	};
-
-	// Todo: Extend P5 with out own function
-	// @ts-ignore
-	p.exportCanvas = () => {
-		console.log('exportCanvas');
+		if (p.key === 'p') {
+			exportCanvas(filename);
+		}
 	};
 };
