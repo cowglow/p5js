@@ -5,6 +5,9 @@ interface PayloadInterface {
 	filename: string;
 }
 
+// Reserved keys — do not bind these in sketch-level keyPressed/keyTyped handlers:
+//   s → save canvas (p.saveCanvas)
+//   p → export canvas (exportCanvas)
 export const bootstrapEventListener = (p: p5, payload: PayloadInterface) => {
 	p.keyTyped = () => {
 		const { filename } = payload;
